@@ -28,7 +28,16 @@ namespace TestApp.Web
                         url: "#/about",
                         icon: "fa fa-info"
                         )
-                );
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "Users",
+                        new LocalizableString("Users", TestAppConsts.LocalizationSourceName),
+                        url: "#/users",
+                        icon: "fa fa-info"
+                        )
+                )
+                ;
         }
     }
 }
