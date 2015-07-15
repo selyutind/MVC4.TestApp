@@ -1,4 +1,5 @@
-﻿<div ng-controller="app.views.home as vm">
+﻿@model TestApp.Web.Models.UsersEntry
+<div ng-controller="app.views.home as vm">
     <h1>@L("WellcomeMessage")</h1>
     <p class="lead">@L("Home_ThisIsATemplate")</p>
     <div class="row">
@@ -22,12 +23,11 @@
                 @L("Home_AngularDescription")
             </p>
             <a class="btn btn-primary btn-sm" href="http://angularjs.org/">@L("LearnMore")..</a>
-        </div>
+        </div>        
     </div>
-    <div class="row2">
-        @ViewData["Entries"];   
-    </div>
+        
 </div>
+
 
 
 
