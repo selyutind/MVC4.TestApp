@@ -1143,7 +1143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_code\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestApp.Application\TestApp.Application.csproj">

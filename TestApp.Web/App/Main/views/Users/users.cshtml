@@ -1,10 +1,13 @@
-﻿@{ Layout = null; } <!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> @ViewBag.Greeting World (from the view) </div>
-</body>
-</html> 
+﻿@model IEnumerable<TestApp.Web.Models.UsersEntry>
+<div ng-controller="app.views.users as vm">
+    @foreach (var user in @Model)
+    {
+        <tr>
+            <td>
+                @user.name
+            </td>
+
+        </tr>
+    }
+        
+</div>

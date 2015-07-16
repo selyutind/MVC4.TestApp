@@ -32,7 +32,7 @@
                     url: '/users',
                     templateUrl: '/App/Main/views/users/users.cshtml',
                     menu: 'Users' //Matches to name of 'About' menu in TestAppNavigationProvider
-                });
+                });           
         }
     ]);
 })();

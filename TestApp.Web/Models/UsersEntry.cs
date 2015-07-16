@@ -13,5 +13,6 @@ namespace TestApp.Web.Models
         public string password { get; set; }
         public string email { get; set; }
         public DateTime date { get; set; }
+        
     }
 }

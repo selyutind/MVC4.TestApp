@@ -22,11 +22,13 @@ namespace TestApp.Web.Controllers
         public ActionResult Index()
         {
             //return View("~/App/Main/views/layout/layout.cshtml", ); //Layout of the angular application.
-            //var users = _db.GetUsers().ToArray();            
+            var users = _db.GetUsers().ToArray();            
             //ViewBag.Users = users.ToList();
-            int hour = DateTime.Now.Hour; 
-            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
-            return View("~/App/Main/views/layout/layout.cshtml");
+
+            //int hour = DateTime.Now.Hour; 
+            //string Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
+            TempData["Greeting"] = users; 
+            return View("~/App/Main/views/layout/layout.cshtml",users);
             
         }       
        
