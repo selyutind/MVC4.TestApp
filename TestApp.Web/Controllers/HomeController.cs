@@ -28,7 +28,7 @@ namespace TestApp.Web.Controllers
             //int hour = DateTime.Now.Hour; 
             //string Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
             TempData["Greeting"] = users; 
-            return View("~/App/Main/views/layout/layout.cshtml",users);
+            return View("~/App/Main/views/layout/layout.cshtml");
             
         }       
        
