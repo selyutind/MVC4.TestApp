@@ -2,7 +2,9 @@
 
 
 <div ng-controller="app.views.users as vm">    
-       
+     <div>         
+         <p>Hello!</p>
+     </div>  
     <table>
 
         <tr>
@@ -20,20 +22,20 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var user in (IEnumerable<TestApp.Web.Models.UsersEntry>)@TempData["Greeting"])
+        @foreach (var user in (IEnumerable<TEST_USERS>)@TempData["Greeting"])
         {
             <tr>
                 <td>
-                   @user.name
+                   @user.NAME
                 </td>
                 <td>
-                    @user.login
+                    @user.LOGIN
                 </td>
                 <td>
-                   @user.password
+                   @user.PASSWORD
                 </td>
                 <td>
-                    @user.email
+                    @user.EMAIL
                 </td>
 
             </tr>

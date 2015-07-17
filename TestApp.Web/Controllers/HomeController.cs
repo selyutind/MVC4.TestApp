@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 
 
@@ -14,22 +15,20 @@ using System.Web.UI.WebControls;
 using TestApp.Web.Models;
 using System.Data.SqlClient;
 
+
 namespace TestApp.Web.Controllers
 {
     public class HomeController : TestAppControllerBase
     {
-        public UsersContext _db = new UsersContext();
+        //public UsersContext _db = new UsersContext();
+        public Entities db = new Entities();
         public ActionResult Index()
         {
-            //return View("~/App/Main/views/layout/layout.cshtml", ); //Layout of the angular application.
-            var users = _db.GetUsers().ToArray();            
-            //ViewBag.Users = users.ToList();
-
-            //int hour = DateTime.Now.Hour; 
-            //string Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
+            //var users = _db.GetUsers().ToArray(); 
+            var users = db.TEST_USERS.ToArray();
+             
             TempData["Greeting"] = users; 
-            return View("~/App/Main/views/layout/layout.cshtml");
-            
+            return View("~/App/Main/views/layout/layout.cshtml");            
         }       
        
 

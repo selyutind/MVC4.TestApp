@@ -21,7 +21,8 @@
                 .state('home', {
                     url: '/',
                     templateUrl: '/App/Main/views/home/home.cshtml',
-                    menu: 'Home' //Matches to name of 'Home' menu in TestAppNavigationProvider
+                    menu: 'Home' //Matches to name of 'Home' menu in TestAppNavigationProvider,
+                    
                 })
                 .state('about', {
                     url: '/about',
@@ -32,7 +33,8 @@
                     url: '/users',
                     templateUrl: '/App/Main/views/users/users.cshtml',
                     menu: 'Users' //Matches to name of 'About' menu in TestAppNavigationProvider
-                });           
+                })
+            ;           
         }
     ]);
 })();
