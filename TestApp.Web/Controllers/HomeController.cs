@@ -3,8 +3,6 @@ using System.Data;
 using System.Data.Entity;
 using System.Web.Mvc;
 
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +10,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using TestApp.Web.Models;
 using System.Data.SqlClient;
 
 
@@ -29,7 +26,7 @@ namespace TestApp.Web.Controllers
              
             TempData["Greeting"] = users; 
             return View("~/App/Main/views/layout/layout.cshtml");            
-        }       
+        }      
        
 
 	}
