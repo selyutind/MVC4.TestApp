@@ -1,19 +1,26 @@
 ﻿(function () {
     var controllerId = 'app.views.users';
     angular.module('app').controller(controllerId, [
-        '$scope', function ($scope) {
-            var vm = this;
-            vm.time = new Date();
-            vm.users = {
-                name: 'vasa',
-                login: 'Vas',
-                password: 'qwerty',
-                email: 'vasa@gmail.com'
-            };          
+        '$scope', 'UserService', function ($scope, UserService) {
+            var vm = this;           
+            function getUsers() {
+                UserService.getUsers()
+                    .success(function (data) {
+                        vm.users = data.result;
+                        console.log(vm.users);
+                    })
+                    .error(function (error) {
+                        vm.status = 'Unable to load customer data: ' + error.message;
+                        console.log(vm.status);
+                    });
+            }
+            vm.time = new Date().toString();
+            getUsers();
 
             //About logic...
         }
     ]);
+    
 
     
 })();

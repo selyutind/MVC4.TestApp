@@ -19,14 +19,35 @@ namespace TestApp.Web.Controllers
     {
         //public UsersContext _db = new UsersContext();
         public Entities db = new Entities();
-        public ActionResult Index()
-        {
-            //var users = _db.GetUsers().ToArray(); 
-            var users = db.TEST_USERS.ToArray();
-             
-            TempData["Greeting"] = users; 
+        public ActionResult Index()        {
+            
+            //var users = db.TEST_USERS.ToArray();             
+            //TempData["Greeting"] = users; 
             return View("~/App/Main/views/layout/layout.cshtml");            
-        }      
+        }
+        public JsonResult Users()
+        {
+            //Entities db = new Entities();
+            var users = db.TEST_USERS.ToArray();
+
+            return Json(users, JsonRequestBehavior.AllowGet);
+
+        }
+        /*public JsonResult Users(int id)
+        {
+            Entities db = new Entities();
+            var user = db.TEST_USERS.Find(id);
+            return Json(user, JsonRequestBehavior.AllowGet);
+
+        }*/
+        [HttpPost]
+        public ActionResult CreateUser(TEST_USERS user)
+        {
+            //Entities db = new Entities();
+            db.TEST_USERS.Add(user);
+            db.SaveChanges();
+            return View("~/App/Main/views/layout/layout.cshtml");
+        }
        
 
 	}

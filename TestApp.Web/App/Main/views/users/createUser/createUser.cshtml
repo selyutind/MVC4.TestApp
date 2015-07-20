@@ -1,0 +1,15 @@
+﻿<div ng-controller="app.views.create.user as vm">  
+    <form novalidate class="simple-form" >
+        <p>Имя</p>
+        <input ng-model="vm.user.name" />
+        <p>Логин</p>
+        <input ng-model="vm.user.login" />
+        <p>Пароль</p>
+        <input ng-model="vm.user.password" />
+        <p>Почта</p>
+        <input ng-model="vm.user.email" />
+        <p>
+            <button ng-click="vm.createUser()">Сохранить</button>
+        </p>
+    </form>
+</div>

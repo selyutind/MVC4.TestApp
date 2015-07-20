@@ -211,6 +211,8 @@
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
     <Content Include="App\Main\views\about\about.js" />
+    <Content Include="App\Main\views\users\createUser\createUser.js" />
+    <Content Include="App\Main\views\users\editUser\editUser.js" />
     <Content Include="App\Main\views\users\users.js" />
     <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1097,6 +1099,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="App\Main\views\users\editUser\editUser.cshtml" />
+    <Content Include="App\Main\views\users\createUser\createUser.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -1179,9 +1183,6 @@
   <ItemGroup>
     <Folder Include="App_code\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\TEST_USERS\" />
-    <Folder Include="Views\UserList\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestApp.Application\TestApp.Application.csproj">

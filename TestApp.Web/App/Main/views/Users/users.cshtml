@@ -5,56 +5,23 @@
     <table class="table table-striped table-condensed table-hover">
         <thead>
             <tr>
-            <th>
-                Имя
-            </th>
-            <th>
-                Логин
-            </th>
-            <th>
-                Пароль
-            </th>
-            <th>
-                Почта
-            </th>            
+                <th>Имя</th>
+                <th>Логин</th>
+                <!--<th>Пароль>/th>-->
+                <th>Почта</th>            
             </tr>
         </thead>
-        <tbody >
-        @foreach (var user in (IEnumerable<TEST_USERS>)@TempData["Greeting"])
-        {
-            <tr>
-                <td>
-                    @user.NAME
-                </td>
-                <td>
-                    @user.LOGIN
-                </td>
-                <td>
-                    @user.PASSWORD
-                </td>
-                <td>
-                    @user.EMAIL
-                </td>
-
-            </tr>
+        <tbody >       
             
-        }
-            <tr>
-                <td>
-                    {{vm.users.name}}
-                </td>
-                <td>
-                    {{vm.users.login}}
-                </td>
-                <td>
-                    {{vm.users.password}}
-                </td>
-                <td>
-                    {{vm.users.email}}
-                </td>
-            </tr>           
+            <tr ng-repeat="user in vm.users">
+                <td>{{user.name}} </td>
+                <td>{{user.login}}</td>
+                <!--<td>{{user.password}}</td>-->
+                <td>{{user.email}}</td>
+            </tr>
+                      
 </tbody>
         
 </table>
-        
+    <a href="~/App/Main/views/users/createUser/createUser.cshtml"></a>        
 </div>
