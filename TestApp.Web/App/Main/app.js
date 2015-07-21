@@ -11,7 +11,7 @@
 
         'abp'
     ]);
-    angular.module('app').factory('UserService', ['$http', function ($http) {
+    angular.module('app').factory('UserService', ['$http','$location','$window', function ($http,$location,$window) {
 
         var UserService = {};
         UserService.getUsers = function () {
@@ -19,6 +19,10 @@
         };
         UserService.editUser = function (id) {
             return $http.get('/home/users/' || id);
+        };
+        UserService.showUser = function (id) {
+            var url = "#/users/"+id;
+            return $location.url('/users/' + id);
         };
         UserService.createUser = function (user) {
             console.log(user);
