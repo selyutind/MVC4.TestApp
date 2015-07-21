@@ -41,7 +41,7 @@ namespace TestApp.Web
                     new MenuItemDefinition(
                         "Edit",
                         new LocalizableString("Edit", TestAppConsts.LocalizationSourceName),
-                        url: "#/users/{id}",
+                        url: "#/users/:id",
                         icon: "fa fa-info"
                         )
                 )

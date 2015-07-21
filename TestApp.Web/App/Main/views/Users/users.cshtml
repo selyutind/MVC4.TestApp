@@ -6,25 +6,21 @@
         <thead>
             <tr>
                 <th>Имя</th>
-                <th>Логин</th>
-                <!--<th>Пароль>/th>-->
+                <th>Логин</th>               
                 <th>Почта</th>            
             </tr>
         </thead>
-        <tbody >       
-            
+        <tbody>
             <tr ng-repeat="user in vm.users">
                 <td>
-                    <a href="#" ng-click="vm.showUser(user.id)">select</a>                     
-                </td> 
+                    <a href="" ng-click="vm.showUser(user.id)">select</a>
+                </td>
                 <td>{{user.name}} </td>
-                <td>{{user.login}}</td>
-                <!--<td>{{user.password}}</td>-->
+                <td>{{user.login}}</td>                
                 <td>{{user.email}}</td>
-            </tr>
-                      
-</tbody>
+            </tr>     
+        </tbody>
         
 </table>
-    <a href="~/App/Main/views/users/createUser/createUser.cshtml"></a>        
+    <a href="" ng-click="vm.showUser(1)">select</a>        
 </div>

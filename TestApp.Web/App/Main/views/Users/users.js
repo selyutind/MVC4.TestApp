@@ -1,10 +1,9 @@
 ﻿(function () {
     var controllerId = 'app.views.users';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService', function ($scope, UserService) {
+        '$scope', 'UserService', '$location', function ($scope, UserService, $location) {
             var vm = this;
-            vm.showUser = function (userId) {
-                
+            vm.showUser = function (userId) {                
                 UserService.showUser(userId);
                 //console.log(user);
             }
@@ -21,7 +20,7 @@
                     });
             }
             
-            getUsers();
+            //getUsers();
 
             //About logic...
         }

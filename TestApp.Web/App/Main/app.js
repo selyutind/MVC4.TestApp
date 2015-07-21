@@ -21,8 +21,9 @@
             return $http.get('/home/users/' || id);
         };
         UserService.showUser = function (id) {
-            var url = "#/users/"+id;
-            return $location.url('/users/' + id);
+            var url = "#/users/" + id;
+            $window.location.href = url;
+            
         };
         UserService.createUser = function (user) {
             console.log(user);
