@@ -8,7 +8,7 @@
                 UserService.createUser(vm.user)
                     .success(function (data) {
                         vm.users = data.result;
-                        console.log(vm.users);
+                        //console.log(vm.users);
                     })
                     .error(function (error) {
                         vm.status = 'Unable to load customer data: ';

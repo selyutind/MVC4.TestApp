@@ -1,33 +1,20 @@
 ﻿(function () {
     var controllerId = 'app.views.edit.user';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService','$location', function ($scope, UserService, $location) {
-            var vm = this;
-            vm.location = $location.href;
-            console.log($location);
-            function showUser() {
-                UserService.getUsers()
+        '$scope', 'UserService','$location', 'ShareData', function ($scope, UserService, $location, ShareData) {
+            var vm = this;            
+            function editUser () {
+                UserService.editUser(ShareData.value)
                     .success(function (data) {
-                        vm.users = data.result;
-                        console.log(vm.users);
+                        vm.user = data.result;
+                        //console.log(vm.user);
                     })
                     .error(function (error) {
-                        vm.status = 'Unable to load customer data: ' + error.message;
+                        vm.status = 'Unable to load user data: ';
                         console.log(vm.status);
                     });
             }
-            vm.editUser = function () {
-                UserService.editUser(vm.user)
-                    .success(function (data) {
-                        vm.users = data.result;
-                        console.log(vm.users);
-                    })
-                    .error(function (error) {
-                        vm.status = 'Unable to load customer data: ';
-                        console.log(vm.status);
-                    });
-            }
-            
+            editUser();
            
 
             //About logic...

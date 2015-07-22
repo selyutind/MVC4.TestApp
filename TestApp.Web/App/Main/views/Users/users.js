@@ -15,12 +15,12 @@
                         //console.log(vm.users);
                     })
                     .error(function (error) {
-                        vm.status = 'Unable to load customer data: ' + error.message;
+                        vm.status = 'Unable to load user data: ' + error.message;
                         console.log(vm.status);
                     });
             }
             
-            //getUsers();
+            getUsers();
 
             //About logic...
         }

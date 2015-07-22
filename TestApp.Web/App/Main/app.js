@@ -11,28 +11,33 @@
 
         'abp'
     ]);
-    angular.module('app').factory('UserService', ['$http','$location','$window', function ($http,$location,$window) {
+    angular.module('app').factory('UserService', ['$http', '$location', '$window', 'ShareData', function ($http, $location, $window, ShareData) {
 
         var UserService = {};
         UserService.getUsers = function () {
             return $http.get('/home/users');
         };
         UserService.editUser = function (id) {
-            return $http.get('/home/users/' || id);
+            //console.log(id);
+            return $http.get('/home/editUser/' + id)
         };
         UserService.showUser = function (id) {
-            var url = "#/users/" + id;
-            $window.location.href = url;
+            var url = "#/editUser";
+            ShareData.value = id;
+            $window.location.href = url;   
             
         };
         UserService.createUser = function (user) {
-            console.log(user);
+            //console.log(user);
             return $http.post('/home/createUser', user);
         };
         return UserService;
 
 
     }]);
+    angular.module('app').factory('ShareData', function () {
+        return { value: 0 };
+    })
     //Configuration for Angular UI routing.
     app.config([
         '$stateProvider', '$urlRouterProvider',
@@ -56,7 +61,7 @@
                     menu: 'Users', //Matches to name of 'Users' menu in TestAppNavigationProvider
                 })
                 .state('edit', {
-                    url: '/users/:id',
+                    url: '/editUser',
                     templateUrl: '/App/Main/views/users/editUser/editUser.cshtml',
                     menu: 'Edit', //Matches to name of 'Edit' menu in TestAppNavigationProvider
                 })

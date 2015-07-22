@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data.Entity.Infrastructure;
 
 
 namespace TestApp.Web.Controllers
@@ -21,31 +22,41 @@ namespace TestApp.Web.Controllers
         public Entities db = new Entities();
         public ActionResult Index()        {
             
-            //var users = db.TEST_USERS.ToArray();             
-            //TempData["Greeting"] = users; 
             return View("~/App/Main/views/layout/layout.cshtml");            
         }
         public JsonResult Users()
-        {
-            //Entities db = new Entities();
+        {            
             var users = db.TEST_USERS.ToArray();
-
             return Json(users, JsonRequestBehavior.AllowGet);
 
-        }
-        /*public JsonResult Users(int id)
-        {
-            Entities db = new Entities();
-            var user = db.TEST_USERS.Find(id);
-            return Json(user, JsonRequestBehavior.AllowGet);
-
-        }*/
+        }      
         [HttpPost]
         public ActionResult CreateUser(TEST_USERS user)
-        {
-            //Entities db = new Entities();
+        {            
             db.TEST_USERS.Add(user);
             db.SaveChanges();
+
+            return View("~/App/Main/views/layout/layout.cshtml");
+        }        
+        public JsonResult EditUser(string id)
+        {
+            int num = Convert.ToInt32( id);
+            //int num = (int)sd.value;
+            TEST_USERS user = db.TEST_USERS.Find(num);
+            return Json(user, JsonRequestBehavior.AllowGet);  
+        }
+        [HttpPost]
+        public ActionResult SaveUser(TEST_USERS user)
+        {          
+            db.Entry(user).State = EntityState.Modified;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+               
+            }
             return View("~/App/Main/views/layout/layout.cshtml");
         }
        
