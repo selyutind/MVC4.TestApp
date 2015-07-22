@@ -13,7 +13,8 @@
                     .error(function (error) {
                         vm.status = 'Unable to load customer data: ';
                         console.log(vm.status);
-                    });   
+                    });
+                
             }
             //About logic...
         }

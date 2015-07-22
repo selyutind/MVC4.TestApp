@@ -7,6 +7,13 @@
                 UserService.showUser(userId);
                 //console.log(user);
             }
+            vm.deleteUser = function (userId) {
+                UserService.deleteUser(userId)
+                .success(function (data) {
+                    UserService.showAllUsers();
+                    //console.log(vm.users);
+                });
+            }
             vm.time = new Date().toString();
             function getUsers() {
                 UserService.getUsers()

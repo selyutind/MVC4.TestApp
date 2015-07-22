@@ -27,9 +27,22 @@
             $window.location.href = url;   
             
         };
+        UserService.showAllUsers = function () {
+            var url = "#/users";            
+            $window.location.href = url;
+
+        };
         UserService.createUser = function (user) {
             //console.log(user);
             return $http.post('/home/createUser', user);
+        };
+        UserService.updateUser = function (user) {
+            //console.log(user);
+            return $http.post('/home/updateUser', user);
+        };
+        UserService.deleteUser = function (id) {
+            //console.log(user);
+            return $http.post('/home/deleteUser/'+ id);
         };
         return UserService;
 

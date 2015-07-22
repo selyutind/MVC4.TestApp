@@ -13,8 +13,11 @@
                         vm.status = 'Unable to load user data: ';
                         console.log(vm.status);
                     });
-            }
+            }            
             editUser();
+            vm.updateUser = function (user) {
+                UserService.updateUser(user);
+            }
            
 
             //About logic...

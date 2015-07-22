@@ -12,12 +12,11 @@
         </thead>
         <tbody>
             <tr ng-repeat="user in vm.users">
-                <td>
-                    <a href="" ng-click="vm.showUser(user.id)">select</a>
-                </td>
+                <td><a href="" ng-click="vm.showUser(user.id)">select</a></td>
                 <td>{{user.name}} </td>
                 <td>{{user.login}}</td>                
                 <td>{{user.email}}</td>
+                <td><a href="" ng-click="vm.deleteUser(user.id)">Delete</a></td>
             </tr>     
         </tbody>
         
