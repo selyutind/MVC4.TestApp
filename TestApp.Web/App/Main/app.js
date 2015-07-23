@@ -44,12 +44,7 @@
             //console.log(user);
             return $http.post('/home/deleteUser/'+ id);
         };
-        UserService.Test = function (id) {
-            var url = "#/About";
-            ShareData.value = id;
-            $window.location.href = url;
-
-        };
+        
         return UserService;
 
 
