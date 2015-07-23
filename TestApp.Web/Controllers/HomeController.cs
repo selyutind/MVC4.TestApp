@@ -40,21 +40,29 @@ namespace TestApp.Web.Controllers
         }        
         public JsonResult EditUser(string id)
         {
-            int num = Convert.ToInt32( id);
+            int num = 0;
+            TEST_USERS user = null;
+            if (id != "null") { 
+                num = Convert.ToInt32(id);
+                user = db.TEST_USERS.Find(num);
+            }
             //int num = (int)sd.value;
-            TEST_USERS user = db.TEST_USERS.Find(num);
+            
             return Json(user, JsonRequestBehavior.AllowGet);  
         }
         [HttpPost]
         public ActionResult UpdateUser(TEST_USERS user)
-        {          
-            db.Entry(user).State = EntityState.Modified;
-            try
+        {
+            if (user != null)
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {               
+                db.Entry(user).State = EntityState.Modified;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                }
             }
             return View("~/App/Main/views/layout/layout.cshtml");
         }
@@ -66,7 +74,7 @@ namespace TestApp.Web.Controllers
                 db.TEST_USERS.Remove(user);
             }
             try
-            {
+            {                
                 db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)

@@ -9,8 +9,8 @@
             }
             vm.deleteUser = function (userId) {
                 UserService.deleteUser(userId)
-                .success(function (data) {
-                    UserService.showAllUsers();
+                .success(function () {
+                    getUsers();
                     //console.log(vm.users);
                 });
             }

@@ -6,7 +6,7 @@
             function editUser () {
                 UserService.editUser(ShareData.value)
                     .success(function (data) {
-                        vm.user = data.result;
+                        vm.user = data.result;                        
                         //console.log(vm.user);
                     })
                     .error(function (error) {
@@ -16,7 +16,13 @@
             }            
             editUser();
             vm.updateUser = function (user) {
-                UserService.updateUser(user);
+                if (user != null) {
+                    UserService.updateUser(user);
+                    ShareData.value = null;
+                    vm.user = null;
+                    UserService.showAllUsers();
+                }
+
             }
            
 

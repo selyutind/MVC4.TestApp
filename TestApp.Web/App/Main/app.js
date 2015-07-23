@@ -31,7 +31,7 @@
             var url = "#/users";            
             $window.location.href = url;
 
-        };
+        };        
         UserService.createUser = function (user) {
             //console.log(user);
             return $http.post('/home/createUser', user);

@@ -37,7 +37,7 @@ namespace TestApp.Web
                         icon: "fa fa-info"
                         )
                 )
-                .AddItem(
+                /*.AddItem(
                     new MenuItemDefinition(
                         "Edit",
                         new LocalizableString("Edit", TestAppConsts.LocalizationSourceName),
@@ -52,7 +52,7 @@ namespace TestApp.Web
                         url: "#/createUser",
                         icon: "fa fa-info"
                         )
-                )
+                )*/
                 ;
         }
     }
