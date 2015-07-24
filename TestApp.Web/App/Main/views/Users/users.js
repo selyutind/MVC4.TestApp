@@ -1,33 +1,34 @@
 ﻿(function () {
     var controllerId = 'app.views.users';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService', '$location', function ($scope, UserService, $location) {
+        '$scope', 'UserService', 'RedirectUrl', 'ShareData', function ($scope, UserService, RedirectUrl, ShareData) {
             var vm = this;
-            vm.showUser = function (userId) {                
-                UserService.showUser(userId);
-                //console.log(user);
+            vm.editUser = function (userId) {
+                ShareData.value = userId;
+                RedirectUrl.editUser();
+                
             }
             vm.deleteUser = function (userId) {
                 UserService.deleteUser(userId)
                 .success(function () {
-                    getUsers();
+                    getAllUsers();
                     //console.log(vm.users);
                 });
             }
             vm.time = new Date().toString();
-            function getUsers() {
-                UserService.getUsers()
+            function getAllUsers() {
+                UserService.getAllUsers()
                     .success(function (data) {
                         vm.users = data.result;
                         //console.log(vm.users);
                     })
                     .error(function (error) {
-                        vm.status = 'Unable to load user data: ' + error.message;
+                        vm.status = 'Unable to load AllUsers data: ' + error.message;
                         console.log(vm.status);
                     });
             }
             
-            getUsers();
+            getAllUsers();
 
             //About logic...
         }

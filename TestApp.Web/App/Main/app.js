@@ -11,47 +11,49 @@
 
         'abp'
     ]);
-    angular.module('app').factory('UserService', ['$http', '$location', '$window', 'ShareData', function ($http, $location, $window, ShareData) {
+    angular.module('app').factory('UserService', ['$http',  function ($http) {
 
         var UserService = {};
-        UserService.getUsers = function () {
+        UserService.getAllUsers = function () {
             return $http.get('/home/users');
         };
-        UserService.editUser = function (id) {
-            //console.log(id);
-            return $http.get('/home/editUser/' + id)
-        };
-        UserService.showUser = function (id) {
-            var url = "#/editUser";
-            ShareData.value = id;
-            $window.location.href = url;   
-            
-        };
-        UserService.showAllUsers = function () {
-            var url = "#/users";            
-            $window.location.href = url;
-
-        };        
-        UserService.createUser = function (user) {
-            //console.log(user);
+        UserService.getUserById = function (id) {            
+            return $http.get('/home/getUserById/' + id)
+        };            
+        UserService.createUser = function (user) {           
             return $http.post('/home/createUser', user);
         };
-        UserService.updateUser = function (user) {
-            //console.log(user);
+        UserService.updateUser = function (user) {            
             return $http.post('/home/updateUser', user);
         };
-        UserService.deleteUser = function (id) {
-            //console.log(user);
+        UserService.deleteUser = function (id) {            
             return $http.post('/home/deleteUser/'+ id);
-        };
-        
+        };        
         return UserService;
 
 
     }]);
+    angular.module('app').factory('RedirectUrl', ['$window', '$location', function ($window, $location) {
+        var RedirectUrl = {};
+        RedirectUrl.users = function () {
+            var url = "#/users";
+            $window.location.href = url;
+        }
+        RedirectUrl.createUser = function () {
+            var url = "#/createUser";
+            $window.location.href = url;
+        }
+        RedirectUrl.editUser = function () {
+            var url = "#/editUser";
+            $window.location.href = url;
+        }
+        return RedirectUrl;
+    }]);
     angular.module('app').factory('ShareData', function () {
         return { value: 0 };
-    })
+    });
+
+
     //Configuration for Angular UI routing.
     app.config([
         '$stateProvider', '$urlRouterProvider',

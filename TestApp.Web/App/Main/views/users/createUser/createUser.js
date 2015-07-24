@@ -1,7 +1,7 @@
 ﻿(function () {
     var controllerId = 'app.views.create.user';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService', function ($scope, UserService) {
+        '$scope', 'UserService', 'RedirectUrl', function ($scope, UserService, RedirectUrl) {
             var vm = this;
           
             vm.createUser = function () {
@@ -9,17 +9,14 @@
                     UserService.createUser(vm.user)
                         .success(function () {
                             vm.user = null;
-                            UserService.showAllUsers();
-
+                            RedirectUrl.users();
                         })
                         .error(function (error) {
-                            vm.status = 'Unable to load customer data: ';
+                            vm.status = 'Unable to create new user: ' + error;
                             console.log(vm.status);
                         });
                 }
-                
             }
-            //About logic...
         }
     ]);
     

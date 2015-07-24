@@ -1,32 +1,27 @@
 ﻿(function () {
     var controllerId = 'app.views.edit.user';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService','$location', 'ShareData', function ($scope, UserService, $location, ShareData) {
+        '$scope', 'UserService', '$location', 'ShareData', 'RedirectUrl', function ($scope, UserService, $location, ShareData, RedirectUrl) {
             var vm = this;            
-            function editUser () {
-                UserService.editUser(ShareData.value)
+            function getUser () {
+                UserService.getUserById(ShareData.value)
                     .success(function (data) {
-                        vm.user = data.result;                        
-                        //console.log(vm.user);
+                        vm.user = data.result; 
                     })
                     .error(function (error) {
-                        vm.status = 'Unable to load user data: ';
+                        vm.status = 'Unable to load user : ' + error;
                         console.log(vm.status);
                     });
             }            
-            editUser();
+            getUser();
             vm.updateUser = function (user) {
                 if (user != null) {
                     UserService.updateUser(user);
                     ShareData.value = null;
                     vm.user = null;
-                    UserService.showAllUsers();
+                    RedirectUrl.users();
                 }
-
             }
-           
-
-            //About logic...
         }
     ]);
     

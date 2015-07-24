@@ -37,8 +37,8 @@ namespace TestApp.Web.Controllers
             db.SaveChanges();
 
             return View("~/App/Main/views/layout/layout.cshtml");
-        }        
-        public JsonResult EditUser(string id)
+        }
+        public JsonResult getUserById(string id)
         {
             int num = 0;
             TEST_USERS user = null;
