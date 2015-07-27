@@ -265,6 +265,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Icon.png" />
+    <Content Include="Localization\TestApp\TestApp.ru.xml" />
     <Content Include="Localization\TestApp\TestApp-zh-CN.xml" />
     <Content Include="Localization\TestApp\TestApp.tr.xml" />
     <Content Include="Localization\TestApp\TestApp.xml" />

@@ -63,8 +63,7 @@
                 .state('home', {
                     url: '/',
                     templateUrl: '/App/Main/views/home/home.cshtml',
-                    menu: 'Home' //Matches to name of 'Home' menu in TestAppNavigationProvider,
-                    
+                    menu: 'Home' //Matches to name of 'Home' menu in TestAppNavigationProvider,                    
                 })
                 .state('about', {
                     url: '/about',
@@ -78,13 +77,11 @@
                 })
                 .state('edit', {
                     url: '/editUser',
-                    templateUrl: '/App/Main/views/users/editUser/editUser.cshtml',
-                    menu: 'Edit', //Matches to name of 'Edit' menu in TestAppNavigationProvider
+                    templateUrl: '/App/Main/views/users/editUser/editUser.cshtml'
                 })
                 .state('create', {
                     url: '/createUser',
-                    templateUrl: '/App/Main/views/users/createUser/createUser.cshtml',
-                    menu: 'Create', //Matches to name of 'Edit' menu in TestAppNavigationProvider
+                    templateUrl: '/App/Main/views/users/createUser/createUser.cshtml'
                 })
 
             ;           
