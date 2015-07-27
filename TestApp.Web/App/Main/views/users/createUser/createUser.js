@@ -5,7 +5,7 @@
             var vm = this;
           
             vm.createUser = function () {
-                if (vm.user != null) {
+                if (vm.user != "null") {
                     UserService.createUser(vm.user)
                         .success(function () {
                             vm.user = null;

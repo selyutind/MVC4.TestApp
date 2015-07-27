@@ -9,13 +9,15 @@
                 
             }
             vm.deleteUser = function (userId) {
-                UserService.deleteUser(userId)
+                vm.alerts[3];
+                vm.alerts.push({ type: 'success', msg: 'Пользователь удален.' });
+                /*UserService.deleteUser(userId)
                 .success(function () {
-                    getAllUsers();
+                    
+                    getAllUsers();                    
                     //console.log(vm.users);
-                });
-            }
-            vm.time = new Date().toString();
+                });*/
+            }            
             function getAllUsers() {
                 UserService.getAllUsers()
                     .success(function (data) {
@@ -27,7 +29,12 @@
                         console.log(vm.status);
                     });
             }
-            
+            vm.alerts = [
+                { type: 'success', msg: 'Пользователь успешно добавлен.' },
+                { type: 'success', msg: 'Данные обновлены.' },
+                { type: 'success', msg: 'Пользователь удален.' }
+            ];
+
             getAllUsers();
 
             //About logic...

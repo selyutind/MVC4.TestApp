@@ -12,6 +12,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data.Entity.Infrastructure;
+using System.Collections;
 
 
 namespace TestApp.Web.Controllers
@@ -25,13 +26,13 @@ namespace TestApp.Web.Controllers
             return View("~/App/Main/views/layout/layout.cshtml");            
         }
         public JsonResult Users()
-        {            
+        {
             var users = db.TEST_USERS.ToArray();
             return Json(users, JsonRequestBehavior.AllowGet);
 
         }      
-        [HttpPost]
-        public ActionResult CreateUser(TEST_USERS user)
+        [HttpPost]        
+        public  ActionResult CreateUser( TEST_USERS user)
         {            
             db.TEST_USERS.Add(user);
             db.SaveChanges();
