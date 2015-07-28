@@ -1,19 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="ru">
   <texts>
-    <text name="HomePage" value="Home page" />
-    <text name="About" value="About" />
-    <text name="Users" value="Users" />
-    <text name="Create" value="Create" />
-    <text name="Edit" value="Edit" />
-    <text name="WellcomeMessage" value="Welcome to TestApp!" />
-    <text name="Home_ThisIsATemplate" value="This project template is a starting point to develop web applicatins using..." />
-    <text name="Home_AspNetDescription" value="ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that enables a clean separation of concerns and that gives you full control over markup for enjoyable, agile development." />
-    <text name="Home_AspNetBoilerplateDescription" value="ASP.NET Boilerplate is a framework to build web based applications with best practices and most popular tools." />
-    <text name="LearnMore" value="Learn more" />
-    <text name="Home_AngularDescription" value="AngularJs is a Single-Page Application framework by Google. It lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop." />
-    <text name="AboutFormat" value="About {0}" />
-    <text name="About_AspNetBoilerplateDescription" value="ASP.NET Boilerplate is a starting point for new web applications with best practices and most popular tools! ASP.NET Boilerplate provides an infrastructure for &lt;strong&gt;NLayer architecture&lt;/strong&gt; and &lt;strong&gt;Domain Driven Design&lt;/strong&gt;." />
-    <text name="ForMoreInformation" value="For more information" />
+    <text name="HomePage" value="Домашняя страница" />
+    <text name="About" value="О технологии" />
+    <text name="Users" value="Пользователи" />
+    <text name="Create" value="Создать" />
+    <text name="Edit" value="Редактировать" />
+    <text name="WellcomeMessage" value="Добро пожаловать в TestApp!" />
+    <text name="Home_ThisIsATemplate" value="Этот шаблонный проект - отправная точка на пути к созданию веб-приложений с использованием..." />
+    <text name="Home_AspNetDescription" value="ASP.NET MVC предоставляет мощный, основанный на паттернах проектирования способ создания динамических веб-сайтов с четким разделением обязанностей и дающий полный контроль над разметкой для приятной и быстрой разработки." />
+    <text name="Home_AspNetBoilerplateDescription" value="ASP.NET Boilerplate - это фреймворк для создания веб-приложений на основе лучших и наиболее популярных методов и инструментов." />
+    <text name="LearnMore" value="Узнать больше" />
+    <text name="Home_AngularDescription" value="AngularJs - это фреймворк для создания одностраничных веб-приложений от Google. Он позволяет расширить HTML-словарь для Вашего приложения. В результате среда становится необычайно удобной для быстрой разработки, легко читаемой и выразительной."/>
+    <text name="AboutFormat" value="Про {0}" />
+    <text name="About_AspNetBoilerplateDescription" value="ASP.NET Boilerplate - это отправная точка для создания веб-приложений на основе лучших и наиболее популярных методов и инструментов! ASP.NET Boilerplate предоставляет инфраструктуру для поддержки &lt;strong&gt;многоуровневой архитектуры (NLayer architecture)&lt;/strong&gt; и &lt;strong&gt;предметно-ориентированного проектирования (Domain Driven Design)&lt;/strong&gt;." />
+    <text name="ForMoreInformation" value="Для дальнейшей информации" />
+    <text name="ListOfUsers" value="Список пользователей" />
+    <text name="CreateUser" value="Создать пользователя" />
+    <text name="SearchField" value="Поиск" />
+    <text name="UserName" value="Имя" />
+    <text name="UserLogin" value="Логин" />
+    <text name="UserEmail" value="Почта" />
+    <text name="NewUserCreation" value="Создание нового пользователя" />
+    <text name="UserEdit" value="Редактирование пользователя" />
+    <text name="UserPassword" value="Пароль" />
+    <text name="Save" value="Сохранить" />
   </texts>
 </localizationDictionary>

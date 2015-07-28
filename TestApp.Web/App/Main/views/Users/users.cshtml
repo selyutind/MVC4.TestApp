@@ -1,12 +1,12 @@
 ﻿<div ng-controller="app.views.users as vm">
+    <!--<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>-->     
+    <div><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert(alert)">{{ alert.msg }}</alert></div>
     <div>
-        <h2>Список пользователей</h2>
-    </div>
-    <!--<a href="#/createUser" >Создать пользователя</a> !-->
-
+        <h2>@L("ListOfUsers")</h2>
+    </div>  
     <div>
-        <button type="button">
-            <i class="fa fa-plus btn tlb"><a href="#/createUser" style="text-decoration: none;"> Создать пользователя</a> </i>
+        <button type="button" ng-click="vm.createUser()">
+            <i class="fa fa-plus btn tlb"> @L("CreateUser")</i>
         </button>
         <i class="fa fa-search">Search</i>    <input ng-model="searchText">  
     </div>    
@@ -15,9 +15,9 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Имя</th>
-                <th>Логин</th>
-                <th>Почта</th>
+                <th>@L("UserName")</th>
+                <th>@L("UserLogin")</th>
+                <th>@L("UserEmail")</th>
             </tr>
         </thead>
         <tbody>

@@ -1,42 +1,40 @@
 ﻿(function () {
     var controllerId = 'app.views.users';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService', 'RedirectUrl', 'ShareData', function ($scope, UserService, RedirectUrl, ShareData) {
-            var vm = this;
+        '$scope', 'UserService', 'RedirectUrl', 'ShareData', 'AlertService', function ($scope, UserService, RedirectUrl, ShareData, AlertService) {
+            var vm = this;            
+            vm.createUser = function () {
+                RedirectUrl.createUser();
+            }
             vm.editUser = function (userId) {
                 ShareData.value = userId;
                 RedirectUrl.editUser();
                 
             }
-            vm.deleteUser = function (userId) {
-                vm.alerts[3];
-                vm.alerts.push({ type: 'success', msg: 'Пользователь удален.' });
-                /*UserService.deleteUser(userId)
+            vm.deleteUser = function (userId) {                
+                UserService.deleteUser(userId)
                 .success(function () {
-                    
-                    getAllUsers();                    
-                    //console.log(vm.users);
-                });*/
-            }            
+                    AlertService.add('success', 'Пользователь успешно удален.');
+                    getAllUsers();  
+                });
+            }
+            /*vm.addAlert = function (type, msg) {
+                AlertService.add(type, msg);
+            }*/
+            vm.closeAlert = function (index) {
+                AlertService.closeAlertIdx(index);
+            }
             function getAllUsers() {
                 UserService.getAllUsers()
                     .success(function (data) {
-                        vm.users = data.result;
-                        //console.log(vm.users);
+                        vm.users = data.result;                        
                     })
                     .error(function (error) {
                         vm.status = 'Unable to load AllUsers data: ' + error.message;
                         console.log(vm.status);
                     });
-            }
-            vm.alerts = [
-                { type: 'success', msg: 'Пользователь успешно добавлен.' },
-                { type: 'success', msg: 'Данные обновлены.' },
-                { type: 'success', msg: 'Пользователь удален.' }
-            ];
-
+            }    
             getAllUsers();
-
             //About logic...
         }
     ]);

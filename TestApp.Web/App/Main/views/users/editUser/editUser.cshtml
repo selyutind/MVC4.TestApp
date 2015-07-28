@@ -1,34 +1,38 @@
-﻿<div ng-controller="app.views.edit.user as vm">    
-    <h2>Редактирование пользователя</h2>    
+﻿<div ng-controller="app.views.edit.user as vm"> 
+    <div><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert)">{{ alert.msg }}</alert></div>  
+    <h2>@L("UserEdit")</h2>    
     <form novalidate class="simple-form" name="userForm" ng-submit="vm.updateUser(vm.user)">
-        <div class="form-group">
-            <label name="name">Имя</label>
-            <input type="text" name="name" class="form-control" ng-model="vm.user.name" placeholder="Имя" ng-minlength="3" ng-maxlength="100" required>
-            <p ng-show="userForm.name.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 3 characters</p>
-            <p ng-show="userForm.name.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 100 characters</p>
-            <p ng-show="userForm.name.$error.required && !userForm.name.$pristine" class="help-block">You name is required.</p>
+        <p class="input-group">
+            <span class="input-group-addon" name="name" style="width: 160px; text-align: left">@L("UserName")</span>
+            <input type="text" name="name" class="form-control" ng-model="vm.user.name" placeholder="@L("UserName")" ng-minlength="3" ng-maxlength="100" required>
+        </p>
+        <p ng-show="userForm.name.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 3 characters</p>
+        <p ng-show="userForm.name.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 100 characters</p>
+        <p ng-show="userForm.name.$error.required && !userForm.name.$pristine" class="help-block">You name is required.</p>
 
-        </div>
-        <div class="form-group">
-            <label name="login">Логин</label>
-            <input type="text" name="login" class="form-control" ng-model="vm.user.login" placeholder="Логин" ng-minlength="5" ng-maxlength="50" required />
-            <p ng-show="userForm.login.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 5 characters.</p>
-            <p ng-show="userForm.login.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 50 characters.</p>
-            <p ng-show="userForm.login.$error.required && !userForm.name.$pristine" class="help-block">You login is required.</p>
-        </div>
-        <div class="form-group">
-            <label name="password">Пароль</label>
-            <input type="password" name="password" class="form-control" ng-model="vm.user.password" placeholder="Пароль" ng-minlength="8" ng-maxlength="20" required />
-            <p ng-show="userForm.password.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 8 characters.</p>
-            <p ng-show="userForm.password.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 20 characters.</p>
-            <p ng-show="userForm.password.$error.required && !userForm.name.$pristine" class="help-block">You password is required.</p>
-        </div>
-        <div class="form-group">
-            <label name="email">Почта</label>
-            <input type="email" name="email" class="form-control" ng-model="vm.user.email" placeholder="Почта" />
-            <p ng-show="userForm.email.$error.email && !userForm.name.$pristine" class="help-block">Not valid email.</p>
-        </div>
-        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Сохранить</button>
+
+        <p class="input-group">
+            <span class="input-group-addon" name="login" style="width: 160px; text-align: left">@L("UserLogin")</span>
+            <input type="text" name="login" class="form-control" ng-model="vm.user.login" placeholder="@L("UserLogin")" ng-minlength="5" ng-maxlength="50" required />
+        </p>
+        <p ng-show="userForm.login.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 5 characters.</p>
+        <p ng-show="userForm.login.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 50 characters.</p>
+        <p ng-show="userForm.login.$error.required && !userForm.name.$pristine" class="help-block">You login is required.</p>
+
+        <p class="input-group">
+            <span class="input-group-addon" name="password" style="width: 160px; text-align: left">@L("UserPassword")</span>
+            <input type="password" name="password" class="form-control" ng-model="vm.user.password" placeholder="@L("UserPassword")" ng-minlength="8" ng-maxlength="20" required />
+        </p>
+        <p ng-show="userForm.password.$error.minlength && !userForm.name.$pristine" class="help-block">Minimum length 8 characters.</p>
+        <p ng-show="userForm.password.$error.maxlength && !userForm.name.$pristine" class="help-block">Maximum length 20 characters.</p>
+        <p ng-show="userForm.password.$error.required && !userForm.name.$pristine" class="help-block">You password is required.</p>
+
+        <p class="input-group">
+            <span class="input-group-addon" name="name" style="width: 160px; text-align: left">@L("UserEmail")</span>
+            <input type="email" name="email" class="form-control" ng-model="vm.user.email" placeholder="@L("UserEmail")" />
+        </p>
+        <p ng-show="userForm.email.$error.email && !userForm.name.$pristine" class="help-block">Not valid email.</p> 
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">@L("Save")</button>
 
     </form>
     

@@ -1,7 +1,7 @@
 ﻿(function () {
     var controllerId = 'app.views.create.user';
     angular.module('app').controller(controllerId, [
-        '$scope', 'UserService', 'RedirectUrl', function ($scope, UserService, RedirectUrl) {
+        '$scope', 'UserService', 'RedirectUrl', 'AlertService', function ($scope, UserService, RedirectUrl, AlertService) {
             var vm = this;
           
             vm.createUser = function () {
@@ -10,6 +10,7 @@
                         .success(function () {
                             vm.user = null;
                             RedirectUrl.users();
+                            AlertService.add('success', 'Новый пользователь успешно создан.');
                         })
                         .error(function (error) {
                             vm.status = 'Unable to create new user: ' + error;

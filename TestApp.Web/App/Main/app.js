@@ -53,6 +53,33 @@
         return { value: 0 };
     });
 
+    angular.module('app').factory('AlertService', [
+      '$rootScope', function($rootScope) {
+          var AlertService;
+          $rootScope.alerts = [];
+          return AlertService = {
+              add: function(type, msg) {
+                  return $rootScope.alerts.push({
+                      type: type,
+                      msg: msg,
+                      close: function() {
+                          return AlertService.closeAlert(this);
+                      }
+                  });
+              },
+              closeAlert: function(alert) {
+                  return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
+              },
+              closeAlertIdx: function(index) {
+                  return $rootScope.alerts.splice(index, 1);
+              },
+              clear: function(){
+                  $rootScope.alerts = [];
+              }
+          };
+      }
+    ])
+
 
     //Configuration for Angular UI routing.
     app.config([
