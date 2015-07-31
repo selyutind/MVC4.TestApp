@@ -200,7 +200,8 @@
     <Content Include="Abp\Framework\styles\abp.css" />
     <Content Include="Abp\Framework\styles\abp.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="App\Main\app.js" />
+    <Content Include="App\Main\app.config.js" />
+    <Content Include="App\Main\app.module.js" />
     <Content Include="App\Main\images\abp-logo.png" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
@@ -208,6 +209,9 @@
     <Content Include="App\Main\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\services\alert.service.js" />
+    <Content Include="App\Main\facrotys\shareData.factory.js" />
+    <Content Include="App\Main\services\user.service.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
@@ -215,7 +219,7 @@
     <Content Include="App\Main\views\users\createUser\createUser.js" />
     <Content Include="App\Main\views\users\editUser\editUser.js" />
     <Content Include="App\Main\views\users\Style.css" />
-    <Content Include="App\Main\views\users\users.js" />
+    <Content Include="App\Main\views\users\showUsers\showUsers.js" />
     <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -1104,6 +1108,7 @@
     </Content>
     <Content Include="App\Main\views\users\editUser\editUser.cshtml" />
     <Content Include="App\Main\views\users\createUser\createUser.cshtml" />
+    <Content Include="App\Main\facrotys\redirectUrl.factory.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -1175,7 +1180,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
     <Content Include="Scripts\version.json" />
-    <Content Include="App\Main\views\users\users.cshtml" />
+    <Content Include="App\Main\views\users\showUsers\showUsers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,5 +1,5 @@
 ﻿<div ng-controller="app.views.edit.user as vm"> 
-    <div><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert)">{{ alert.msg }}</alert></div>  
+    <div><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert(alert)">{{ alert.msg }}</alert></div>  
     <h2>@L("UserEdit")</h2>    
     <form novalidate class="simple-form" name="userForm" ng-submit="vm.updateUser(vm.user)">
         <p class="input-group">
