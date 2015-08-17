@@ -17,15 +17,13 @@ using System.Collections;
 
 namespace TestApp.Web.Controllers
 {
-    public class HomeController : TestAppControllerBase
-    {
-        //public UsersContext _db = new UsersContext();
-        public Entities db = new Entities();
-        public ActionResult Index()        {
-            
+    public class HomeController : TestAppControllerBase    {
+               
+        public ActionResult Index()
+        {                      
             return View("~/App/Main/views/layout/layout.cshtml");            
         }
-        public JsonResult Users()
+        /*public JsonResult Users()
         {
             var users = db.TEST_USERS.ToArray();
             return Json(users, JsonRequestBehavior.AllowGet);
@@ -82,7 +80,7 @@ namespace TestApp.Web.Controllers
             {
             }
             return View("~/App/Main/views/layout/layout.cshtml");
-        }
+        }*/
        
 
 	}

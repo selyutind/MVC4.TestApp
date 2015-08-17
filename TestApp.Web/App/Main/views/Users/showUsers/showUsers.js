@@ -38,10 +38,10 @@
         function getAllUsers() {
             userService.getAllUsers()
                 .success(function (data) {
-                    vm.users = data.result;
+                    vm.users = data;
                 })
                 .error(function (error) {
-                    vm.status = 'Unable to load AllUsers data: ' + error.message;
+                    vm.status = 'Unable to load AllUsers data: ' + error;
                     console.log(vm.status);
                 });
         };

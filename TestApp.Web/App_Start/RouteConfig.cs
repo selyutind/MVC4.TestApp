@@ -13,7 +13,7 @@ namespace TestApp.Web
             //ASP.NET Web API Route Config
             routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
                 );
 
