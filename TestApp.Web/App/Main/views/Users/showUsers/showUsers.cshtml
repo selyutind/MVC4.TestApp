@@ -33,4 +33,6 @@
         </tbody>
 
     </table>
+    <pagination  ng-change="vm.getAllUsers()" total-items="vm.totalItems" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" boundary-links="true"></pagination>
+    <div>currentPage {{vm.currentPage}}</div>
 </div>

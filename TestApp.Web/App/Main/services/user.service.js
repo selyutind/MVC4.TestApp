@@ -13,6 +13,15 @@
             //return $http.get('/home/users');
             return $http.get('api/users/GetUsers');
         };
+        userService.getPaginationAllUsers = function (page, perPage) {
+            //return $http.get('/home/users');
+            return $http.get('api/users/GetPaginationUsers', {
+                params: {
+                    currentPage: page,
+                    itemsPerPage: perPage
+                }
+            });
+        };
         userService.getUserById = function (id) {
             //return $http.get('/home/getUserById/' + id)
             return $http.get('api/users/GetUser/'+ id);
@@ -21,13 +30,18 @@
             //return $http.post('/home/createUser', user);
             return $http.post('api/users/PostUser/' + user);
         };
-        userService.updateUser = function (user) {
+        userService.updateUser = function (userId, modelUser) {
             //return $http.post('/home/updateUser', user);
-            return $http.post('api/users/putUsers/' + user);
+            return $http.put('api/users/putUsers', {
+                params: {
+                    id: userId,
+                    user: modelUser
+                }
+            });
         };
         userService.deleteUser = function (id) {
             //return $http.post('/home/deleteUser/' + id);
-            return $http.post('api/users/deleteUser/' + user);
+            return $http.delete('api/users/deleteUser/' + id);
         };
         return userService;
     };

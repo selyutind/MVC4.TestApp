@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Routing;
 using TestApp.Web;
 
 namespace TestApp.Web.Controllers
@@ -22,6 +23,33 @@ namespace TestApp.Web.Controllers
         public IQueryable<TEST_USERS> GetUsers()
         {
             return db.TEST_USERS;
+        }
+        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10)
+        {
+            //int currentPage = Convert.ToInt32(page);
+            //int itemsPerPage = 10;
+            //int currentPage = 0;
+            IQueryable<TEST_USERS> query;
+
+            query = db.TEST_USERS.OrderBy(c => c.NAME);
+
+            var totalCount = query.Count();
+            var totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
+
+            var urlHelper = new UrlHelper(Request);
+            //var prevLink = page > 0 ? urlHelper.Link("Students", new { page = page - 1, pageSize = pageSize }) : "";
+            //var nextLink = page < totalPages - 1 ? urlHelper.Link("Students", new { page = page + 1, pageSize = pageSize }) : "";            
+           
+
+            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Current-Page", Newtonsoft.Json.JsonConvert.SerializeObject(currentPage-1));
+            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Page-Count", Newtonsoft.Json.JsonConvert.SerializeObject(totalPages));
+            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Per-Page", Newtonsoft.Json.JsonConvert.SerializeObject(itemsPerPage));
+            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Total-Count", Newtonsoft.Json.JsonConvert.SerializeObject(totalCount));
+
+            IQueryable<TEST_USERS> results = query
+                .Skip(itemsPerPage * (currentPage - 1))
+                .Take(itemsPerPage);
+            return results;
         }
 
         // GET: api/Users/5
@@ -39,19 +67,19 @@ namespace TestApp.Web.Controllers
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(decimal id, TEST_USERS tEST_USERS)
+        public IHttpActionResult PutUsers(decimal id, TEST_USERS test_users)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != tEST_USERS.ID)
+            if (id != test_users.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(tEST_USERS).State = EntityState.Modified;
+            db.Entry(test_users).State = EntityState.Modified;
 
             try
             {

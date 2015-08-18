@@ -13,6 +13,14 @@
         vm.createUser = createUser;
         vm.deleteUser = deleteUser;
         vm.editUser = editUser;
+        vm.setPage = setPage;
+
+        vm.totalItems = 10;
+        vm.currentPage = 1;
+        vm.itemsPerPage = 10;
+        vm.maxSize = 5;
+
+        //vm.pageChanged = pageChanged;
 
         getAllUsers();
 
@@ -36,15 +44,33 @@
         };
 
         function getAllUsers() {
-            userService.getAllUsers()
-                .success(function (data) {
+            userService.getPaginationAllUsers(vm.currentPage, vm.itemsPerPage)
+                .success(function (data, status, headers) {
                     vm.users = data;
+                    vm.totalItems = angular.fromJson(headers('X-Pagination-Total-Count'));
+                    //vm.itemsPerPage = ;
+                    //vm.currentPage
                 })
                 .error(function (error) {
                     vm.status = 'Unable to load AllUsers data: ' + error;
                     console.log(vm.status);
                 });
         };
+        function setPage(page) {
+            vm.currentPage = page;
+            vm.users = null;
+            getAllUsers();
+        };
+
+        /*function pageChanged(){
+            userService.getAllUsers(vm.currentPage, vm.itemsPerPage)
+               .success(function (data) {                   
+               })
+               .error(function (error) {
+                   vm.status = 'Unable to load AllUsers data: ' + error;
+                   console.log(vm.status);
+               });
+        };*/
     };
         
     

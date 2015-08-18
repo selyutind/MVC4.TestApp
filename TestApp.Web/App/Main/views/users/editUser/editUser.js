@@ -18,7 +18,7 @@
         function getUser() {
             userService.getUserById(ShareData.value)
                 .success(function (data) {
-                    vm.user = data.result;
+                    vm.user = data;
                 })
                 .error(function (error) {
                     vm.status = 'Unable to load user : ' + error;
@@ -28,7 +28,7 @@
         
         function updateUser(user) {
             if (user != null) {
-                userService.updateUser(user)
+                userService.updateUser(ShareData.value, user)
                     .success(function (data) {
                         alertService.add('success', 'Данные сохранены.');
                     })
