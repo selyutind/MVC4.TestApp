@@ -14,22 +14,22 @@
 
         function closeAlert(index) {
             alertService.closeAlert(index);
-        }
+        };
         function getUser() {
             userService.getUserById(ShareData.value)
                 .success(function (data) {
-                    vm.user = data.result;                    
+                    vm.user = data.result;
                 })
                 .error(function (error) {
                     vm.status = 'Unable to load user : ' + error;
                     console.log(vm.status);
                 });
-        }
+        };
         
-        function updateUser (user) {
+        function updateUser(user) {
             if (user != null) {
                 userService.updateUser(user)
-                    .success(function (data) {                        
+                    .success(function (data) {
                         alertService.add('success', 'Данные сохранены.');
                     })
                     .error(function (error) {
@@ -40,7 +40,7 @@
                 vm.user = null;
                 redirectUrl.users();
             }
-        }
+        };
     }
     
         

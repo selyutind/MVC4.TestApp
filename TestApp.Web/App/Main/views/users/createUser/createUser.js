@@ -9,7 +9,7 @@
         var vm = this;
         vm.createUser = createUser;
         
-        function createUser () {
+        function createUser() {
             if (vm.user != "null") {
                 userService.createUser(vm.user)
                     .success(function () {
@@ -22,7 +22,7 @@
                         console.log(vm.status);
                     });
             }
-        }
+        };
     }  
     
 })();

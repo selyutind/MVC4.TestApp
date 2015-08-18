@@ -35,7 +35,7 @@ namespace TestApp.Web
                         "~/Scripts/jquery-2.1.4.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
 
-                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/bootstrap.min.js",                     
 
                         "~/Scripts/moment-with-locales.min.js",
                         "~/Scripts/jquery.blockUI.js",

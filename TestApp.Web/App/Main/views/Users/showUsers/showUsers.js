@@ -15,13 +15,13 @@
         vm.editUser = editUser;
 
         getAllUsers();
-        
+
         function closeAlert(index) {
             alertService.closeAlertIdx(index);
         };
         function createUser() {
             redirectUrl.createUser();
-        }
+        };
         function deleteUser(userId) {
             userService.deleteUser(userId)
             .success(function () {
@@ -45,7 +45,7 @@
                     console.log(vm.status);
                 });
         };
-    }
+    };
         
     
     
