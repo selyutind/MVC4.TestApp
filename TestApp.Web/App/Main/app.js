@@ -5,7 +5,7 @@
         'ngAnimate',
         'ngCookies',        
         'ngSanitize',
-
+        //'/'/
         'ui.router',
         'ui.bootstrap',
         'ui.grid',
