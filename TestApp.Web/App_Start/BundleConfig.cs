@@ -20,7 +20,7 @@ namespace TestApp.Web
                         "~/Scripts/sweetalert/sweet-alert.css",
                         "~/Content/flags/famfamfam-flags.css",
                         "~/Content/font-awesome.min.css",
-                        "~/Content/ui-grid.css"
+                        "~/Content/ui-grid.min.css"
                     )
                 );
 
