@@ -10,7 +10,9 @@
         'ui.bootstrap',
         'ui.grid',
         'ui.jq',
-        //SA комментарий
+        
+
+        //SA комментарий 2
         'abp'
     ]);
     angular
