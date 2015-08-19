@@ -46,7 +46,7 @@
         };
 
         function getAllUsers() {
-            userService.getPaginationAllUsers(vm.currentPage, vm.itemsPerPage)
+            userService.getPaginationAllUsers(vm.currentPage, vm.itemsPerPage, vm.searchText)
                 .success(function (data, status, headers) {
                     vm.users = data;                    
                     vm.totalItems = angular.fromJson(headers('X-Pagination-Total-Count'));                    
