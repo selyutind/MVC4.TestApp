@@ -15,11 +15,7 @@
         vm.editUser = editUser;
 
         vm.setPage = setPage;
-        vm.pageChanged = function () {
-            getAllUsers();
-            console.log('Page changed to: ' + vm.currentPage);
-        };
-
+        vm.pageChanged = pageChanged;
 
         vm.totalItems = 10;
         vm.currentPage = 1;
@@ -31,9 +27,11 @@
         function closeAlert(index) {
             alertService.closeAlertIdx(index);
         };
+
         function createUser() {
             redirectUrl.createUser();
         };
+
         function deleteUser(userId) {
             userService.deleteUser(userId)
             .success(function () {
@@ -58,10 +56,14 @@
                     console.log(vm.status);
                 });
         };
+
         function setPage(page) {
             vm.currentPage = page;
             vm.users = null;
             getAllUsers();
+        };
+        function pageChanged () {
+            getAllUsers();            
         };
        
     };
