@@ -32,12 +32,12 @@
         };
         userService.updateUser = function (userId, modelUser) {
             //return $http.post('/home/updateUser', user);
-            return $http.put('api/users/putUsers', {
+            return $http.put('api/users/putUsers/' + userId, modelUser); /*{
                 params: {
                     id: userId,
                     user: modelUser
                 }
-            });
+            });*/
         };
         userService.deleteUser = function (id) {
             //return $http.post('/home/deleteUser/' + id);

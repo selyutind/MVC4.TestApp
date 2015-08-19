@@ -34,7 +34,7 @@ namespace TestApp.Web
                         "Users",
                         new LocalizableString("Users", TestAppConsts.LocalizationSourceName),
                         url: "#/users",
-                        icon: "fa fa-info"
+                        icon: "fa fa-users"
                         )
                 )               
                 ;

@@ -49,6 +49,10 @@ namespace TestApp.Web.Controllers
             IQueryable<TEST_USERS> results = query
                 .Skip(itemsPerPage * (currentPage - 1))
                 .Take(itemsPerPage);
+            foreach (var user in query)
+            {
+                user.PASSWORD = null;
+            }
             return results;
         }
 

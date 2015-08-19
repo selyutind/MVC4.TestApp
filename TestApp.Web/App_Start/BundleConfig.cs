@@ -19,7 +19,8 @@ namespace TestApp.Web
                         "~/Content/toastr.min.css",
                         "~/Scripts/sweetalert/sweet-alert.css",
                         "~/Content/flags/famfamfam-flags.css",
-                        "~/Content/font-awesome.min.css"
+                        "~/Content/font-awesome.min.css",
+                        "~/Content/ui-grid.css"
                     )
                 );
 
@@ -46,10 +47,11 @@ namespace TestApp.Web
 
                         "~/Scripts/angular.min.js",
                         "~/Scripts/angular-animate.min.js",
-                        "~/Scripts/angular-sanitize.min.js",
+                        "~/Scripts/angular-sanitize.min.js",                        
                         "~/Scripts/angular-ui-router.min.js",
                         "~/Scripts/angular-ui/ui-bootstrap.min.js",
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+                        "~/Scripts/angular-ui/ui-grid.min.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
 
                         "~/Abp/Framework/scripts/abp.js",
