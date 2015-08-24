@@ -5603,6 +5603,10 @@ DEBUG 2015-08-19 18:01:55,050 [1    ] Abp.Localization.LocalizationManager     -
 DEBUG 2015-08-19 18:01:55,053 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: TestApp
 DEBUG 2015-08-19 18:01:55,053 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
 >>>>>>> be2ac957f585440ede034b7a0b796ed49afb0325
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> Immortall08/master
 DEBUG 2015-08-24 11:12:33,727 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
 DEBUG 2015-08-24 11:12:38,483 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
 DEBUG 2015-08-24 11:12:38,492 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
@@ -5622,3 +5626,8 @@ DEBUG 2015-08-24 11:12:47,559 [1    ] Abp.Localization.LocalizationManager     -
 DEBUG 2015-08-24 11:12:47,573 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
 DEBUG 2015-08-24 11:12:47,584 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: TestApp
 DEBUG 2015-08-24 11:12:47,585 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Immortall08-master
+>>>>>>> Immortall08/master
