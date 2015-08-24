@@ -13,42 +13,25 @@
         vm.createUser = createUser;
         vm.deleteUser = deleteUser;
         vm.editUser = editUser;
+
         vm.setPage = setPage;
+        vm.pageChanged = pageChanged;
 
         vm.totalItems = 10;
         vm.currentPage = 1;
         vm.itemsPerPage = 10;
         vm.maxSize = 5;
 
-        vm.myData = [{
-            "firstName": "Cox",
-            "lastName": "Carney",
-            "company": "Enormo",
-            "employed": true
-        },
-        {
-            "firstName": "Lorraine",
-            "lastName": "Wise",
-            "company": "Comveyer",
-            "employed": false
-        },
-        {
-            "firstName": "Nancy",
-            "lastName": "Waters",
-            "company": "Fuelton",
-            "employed": false
-        }];
-
-        //vm.pageChanged = pageChanged;
-
         getAllUsers();
 
         function closeAlert(index) {
             alertService.closeAlertIdx(index);
         };
+
         function createUser() {
             redirectUrl.createUser();
         };
+
         function deleteUser(userId) {
             userService.deleteUser(userId)
             .success(function () {
@@ -63,33 +46,26 @@
         };
 
         function getAllUsers() {
-            userService.getPaginationAllUsers(vm.currentPage, vm.itemsPerPage)
+            userService.getPaginationAllUsers(vm.currentPage, vm.itemsPerPage, vm.searchText)
                 .success(function (data, status, headers) {
-                    vm.users = data;
-                    vm.totalItems = angular.fromJson(headers('X-Pagination-Total-Count'));
-                    //vm.itemsPerPage = ;
-                    //vm.currentPage
+                    vm.users = data;                    
+                    vm.totalItems = angular.fromJson(headers('X-Pagination-Total-Count'));                    
                 })
                 .error(function (error) {
                     vm.status = 'Unable to load AllUsers data: ' + error;
                     console.log(vm.status);
                 });
         };
+
         function setPage(page) {
             vm.currentPage = page;
             vm.users = null;
             getAllUsers();
         };
-
-        /*function pageChanged(){
-            userService.getAllUsers(vm.currentPage, vm.itemsPerPage)
-               .success(function (data) {                   
-               })
-               .error(function (error) {
-                   vm.status = 'Unable to load AllUsers data: ' + error;
-                   console.log(vm.status);
-               });
-        };*/
+        function pageChanged () {
+            getAllUsers();            
+        };
+       
     };
         
     
