@@ -4,24 +4,21 @@
 	angular
         .module('app')
         .factory('redirectUrl', redirectUrl);
-	redirectUrl.$inject = ['$window', '$location'];
+	redirectUrl.$inject =['$window'];
 
-	function redirectUrl($window, $location) {
+	function redirectUrl($window) {
 		var redirectUrl = {};
 		redirectUrl.users = function () {
-			//var url = "#/users";
-			//$window.location.href = url;
-		    $location.path('/users');
+			var url = "#/users";
+			$window.location.href = url;
 		}
 		redirectUrl.createUser = function () {
-			//var url = "#/createUser";
-			//$window.location.href = url;
-		    $location.path('/createUser');
+			var url = "#/createUser";
+			$window.location.href = url;
 		}
 		redirectUrl.editUser = function () {
-			//var url = "#/editUser";
-			//$window.location.href = url;
-		    $location.path('/editUser');
+			var url = "#/editUser";
+			$window.location.href = url;
 		}
 		return redirectUrl;
 	}
