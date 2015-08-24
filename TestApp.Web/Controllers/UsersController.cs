@@ -24,7 +24,7 @@ namespace TestApp.Web.Controllers
         {
             return db.TEST_USERS;
         }
-        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10)
+        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10, string search = null)
         {
             //int currentPage = Convert.ToInt32(page);
             //int itemsPerPage = 10;
@@ -34,8 +34,11 @@ namespace TestApp.Web.Controllers
             query = db.TEST_USERS.OrderBy(c => c.NAME);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             //Поиск v1
+=======
+>>>>>>> Immortall08/revert-7-master
             if (!String.IsNullOrEmpty(search))
             {
                 string[] searchElements = search.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -46,7 +49,10 @@ namespace TestApp.Web.Controllers
                 }
             }
 
+<<<<<<< HEAD
 >>>>>>> Immortall08/master
+=======
+>>>>>>> Immortall08/revert-7-master
             var totalCount = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
 
