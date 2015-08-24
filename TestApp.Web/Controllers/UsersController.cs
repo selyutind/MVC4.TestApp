@@ -16,9 +16,6 @@ namespace TestApp.Web.Controllers
     public class UsersController : ApiController
     {
         private Entities db = new Entities();
-
-
-
         // GET: api/Users
         public IQueryable<TEST_USERS> GetUsers()
         {
@@ -26,9 +23,7 @@ namespace TestApp.Web.Controllers
         }
         public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10, string search = null)
         {
-            //int currentPage = Convert.ToInt32(page);
-            //int itemsPerPage = 10;
-            //int currentPage = 0;
+               
             IQueryable<TEST_USERS> query;
 
             query = db.TEST_USERS.OrderBy(c => c.NAME);
