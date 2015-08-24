@@ -4,6 +4,7 @@
     <text name="HomePage" value="Домашняя страница" />
     <text name="About" value="О технологии" />
     <text name="Users" value="Пользователи" />
+    <text name="Calendar" value="Календарь" />
     <text name="Create" value="Создать" />
     <text name="Edit" value="Редактировать" />
     <text name="WellcomeMessage" value="Добро пожаловать в TestApp!" />

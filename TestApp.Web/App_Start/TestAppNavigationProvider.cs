@@ -28,6 +28,13 @@ namespace TestApp.Web
                         url: "#/about",
                         icon: "fa fa-info"
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Calendar",
+                        new LocalizableString("Calendar", TestAppConsts.LocalizationSourceName),
+                        url: "#/calendar",
+                        icon: "fa fa-info"
+                        )
                 )
                 .AddItem(
                     new MenuItemDefinition(

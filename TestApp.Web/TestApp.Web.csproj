@@ -213,6 +213,8 @@
     <Content Include="App\Main\services\alert.service.js" />
     <Content Include="App\Main\facrotys\shareData.factory.js" />
     <Content Include="App\Main\services\user.service.js" />
+    <Content Include="App\Main\views\calendar\calendar.js" />
+    <Content Include="App\Main\views\calendar\calendar.css" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
@@ -227,10 +229,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -316,10 +320,14 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular-ui\calendar\fullcalendar.js" />
+    <Content Include="Scripts\angular-ui\calendar\fullcalendar.min.js" />
+    <Content Include="Scripts\angular-ui\calendar\gcal.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular-ui\calendar\calendar.js" />
     <Content Include="Scripts\angular-ui\ui-utils-ieshiv.js" />
     <Content Include="Scripts\angular-ui\ui-utils-ieshiv.min.js" />
     <Content Include="Scripts\angular-ui\ui-utils.js" />
@@ -1114,6 +1122,7 @@
     <Content Include="App\Main\views\users\createUser\createUser.cshtml" />
     <Content Include="App\Main\facrotys\redirectUrl.factory.js" />
     <Content Include="App\Main\views\login\login.cshtml" />
+    <Content Include="App\Main\views\calendar\calendar.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

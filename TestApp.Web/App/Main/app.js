@@ -1,5 +1,5 @@
 ﻿(function () {
-    'use strict';     
+    'use strict';
 
     angular.module('app', [
         'ngAnimate',
@@ -10,6 +10,7 @@
         'ui.bootstrap',
         'ui.grid',
         'ui.jq',
+        'ui.calendar',
 
         'abp'
     ]);
@@ -41,6 +42,12 @@
                 controller: 'app.views.about',
                 templateUrl: '/App/Main/views/about/about.cshtml',
                 menu: 'About' //Matches to name of 'About' menu in TestAppNavigationProvider
+            })
+            .state('calendar', {
+                url: '/calendar',
+                controller: 'app.views.calendar',
+                templateUrl: '/App/Main/views/calendar/calendar.cshtml',
+                menu: 'Calendar'
             })
             .state('users', {
                 url: '/users',

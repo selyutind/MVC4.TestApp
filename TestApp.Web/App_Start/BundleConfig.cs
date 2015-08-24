@@ -20,7 +20,9 @@ namespace TestApp.Web
                         "~/Scripts/sweetalert/sweet-alert.css",
                         "~/Content/flags/famfamfam-flags.css",
                         "~/Content/font-awesome.min.css",
-                        "~/Content/ui-grid.min.css"
+                        "~/Content/ui-grid.min.css",
+                        "~/Content/fullcalendar.min.css",
+                        "~/Content/bootstrap.min.css"
                     )
                 );
 
@@ -53,6 +55,9 @@ namespace TestApp.Web
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
                         "~/Scripts/angular-ui/ui-grid.min.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
+                        "~/Scripts/angular-ui/calendar/calendar.js",
+                        "~/Scripts/angular-ui/calendar/fullcalendar.min.js",
+                        "~/Scripts/angular-ui/calendar/gcal.js",
 
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",

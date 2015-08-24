@@ -1,0 +1,32 @@
+﻿<div ng-controller="app.views.calendar as vm">
+
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="btn-group calTools">
+                        <button class="btn btn-sm" ng-click="addRemoveEventSource(eventSources,eventSource)">
+                            Toggle Source
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="addEvent()">
+                            Add Event
+                        </button>
+                    </div>
+
+                    <ul class="unstyled">
+                        <li ng-repeat="e in events">
+                            <div class="alert alert-info">
+                                <a class="close" ng-click="remove($index)">x</a>
+                                <b> <input ng-model="e.title"></b>
+                                {{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <div id="calendar" class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="{{uiConfig.calendar}}"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
