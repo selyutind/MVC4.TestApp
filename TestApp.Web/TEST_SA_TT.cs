@@ -12,14 +12,12 @@ namespace TestApp.Web
     using System;
     using System.Collections.Generic;
     
-    public partial class TEST_USERS
+    public partial class TEST_SA_TT
     {
         public decimal ID { get; set; }
-        public string NAME { get; set; }
-        public string LOGIN { get; set; }
-        public string PASSWORD { get; set; }
-        public string EMAIL { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
-        public Nullable<decimal> USER_ID { get; set; }
+        public Nullable<decimal> CID { get; set; }
+        public string TEXT_ADDR { get; set; }
+        public string TEXT_ADDR_NRM { get; set; }
+        public string TEXT_ADDR_OTHER { get; set; }
     }
 }
