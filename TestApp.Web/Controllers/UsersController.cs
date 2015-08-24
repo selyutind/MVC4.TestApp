@@ -33,6 +33,7 @@ namespace TestApp.Web.Controllers
 
             query = db.TEST_USERS.OrderBy(c => c.NAME);
 
+            //Поиск
             if (!String.IsNullOrEmpty(search))
             {
                 string[] searchElements = search.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
