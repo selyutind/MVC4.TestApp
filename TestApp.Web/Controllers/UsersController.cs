@@ -33,6 +33,20 @@ namespace TestApp.Web.Controllers
 
             query = db.TEST_USERS.OrderBy(c => c.NAME);
 
+<<<<<<< HEAD
+=======
+            //Поиск v1
+            if (!String.IsNullOrEmpty(search))
+            {
+                string[] searchElements = search.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string searchElement in searchElements)
+                {
+                    string element = searchElement;
+                    query = query.Where(c => c.NAME.Contains(element) || c.LOGIN.Contains(element) || c.EMAIL.Contains(element));
+                }
+            }
+
+>>>>>>> Immortall08/master
             var totalCount = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
 
