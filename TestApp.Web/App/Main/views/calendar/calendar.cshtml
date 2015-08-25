@@ -4,27 +4,43 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="btn-group calTools">
-                        <button class="btn btn-sm" ng-click="addRemoveEventSource(eventSources,eventSource)">
-                            Toggle Source
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="addEvent()">
-                            Add Event
-                        </button>
-                    </div>
+                    <div><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert)">{{ alert.msg }}</alert></div>
+                    <h2>@L("NewEventCreation")</h2>
+                    <form novalidate class="simple-form" name="eventForm" ng-submit="vm.createUser(vm.user)">
+                        <p class="input-group">
+                            <span class="input-group-addon" name="title" style="width: 160px; text-align: left">@L("Title")</span>
+                            <input type="text" name="name" class="form-control" ng-model="vm.event.title" placeholder="@L("Title")" ng-minlength="3" ng-maxlength="100" required>
+                        </p>
+                        <p ng-show="eventForm.name.$error.minlength && !eventForm.name.$pristine" class="help-block">Minimum length 3 characters</p>
+                        <p ng-show="eventForm.name.$error.maxlength && !eventForm.name.$pristine" class="help-block">Maximum length 100 characters</p>
+                        <p ng-show="eventForm.name.$error.required && !eventForm.name.$pristine" class="help-block">You name is required.</p>
 
-                    <ul class="unstyled">
-                        <li ng-repeat="e in events">
-                            <div class="alert alert-info">
-                                <a class="close" ng-click="remove($index)">x</a>
-                                <b> <input ng-model="e.title"></b>
-                                {{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}
-                            </div>
-                        </li>
-                    </ul>
+
+                        <p class="input-group">
+                            <span class="input-group-addon" name="start" style="width: 160px; text-align: left">@L("StartDate")</span>
+                            <input type="date" name="startDate" class="form-control" ng-model="vm.event.start" placeholder="@L("StartDate")" ng-minlength="5" ng-maxlength="50" required />
+                        </p>
+
+                        <p class="input-group">
+                            <span class="input-group-addon" name="end" style="width: 160px; text-align: left">@L("EndDate")</span>
+                            <input type="date" name="endDate" class="form-control" ng-model="vm.event.end" placeholder="@L("EndDate")" />
+                        </p>
+
+                        <p class="input-group">
+                            <span class="input-group-addon" name="allDay" style="width: 160px; text-align: left">@L("AllDay")</span>
+                            <input type="checkbox" name="allDay" class="form-control" ng-model="vm.event.allDay" />
+                        </p>
+
+                        <p class="input-group">
+                            <span class="input-group-addon" name="url" style="width: 160px; text-align: left">@L("Url")</span>
+                            <input type="text" name="url" class="form-control" ng-model="vm.event.url" placeholder="@L("Url")">
+                        </p>
+
+                        <button ng-click="vm.addEvent()" class="btn btn-primary" ng-disabled="eventForm.$invalid">@L("Add")</button>
+                    </form>
                 </td>
                 <td>
-                    <div id="calendar" class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="{{uiConfig.calendar}}"></div>
+                    <div id="calendar" class="calendar" ng-model="vm.eventSources" calendar="myCalendar" ui-calendar="{{vm.uiConfig.calendar}}"></div>
                 </td>
             </tr>
         </tbody>
