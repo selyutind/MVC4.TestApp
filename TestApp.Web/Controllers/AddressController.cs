@@ -13,20 +13,22 @@ using TestApp.Web;
 
 namespace TestApp.Web.Controllers
 {
-    public class UsersController : ApiController
+    public class AddressController : ApiController
     {
         private Entities db = new Entities();
-        // GET: api/Users
-        public IQueryable<TEST_USERS> GetUsers()
-        {
-            return db.TEST_USERS;
-        }
-        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10, string search = null)
-        {
-               
-            IQueryable<TEST_USERS> query;
 
-            query = db.TEST_USERS.OrderBy(c => c.NAME);
+        // GET: api/Address
+        public IQueryable<TEST_SA_TT> GetTEST_SA_TT()
+        {
+            return db.TEST_SA_TT;
+        }
+        // GET: api/Address/GetPaginationAddress
+        public IQueryable<TEST_SA_TT> GetPaginationAddress(int currentPage = 1, int itemsPerPage = 10, string search = null)
+        {
+
+            IQueryable<TEST_SA_TT> query;
+
+            query = db.TEST_SA_TT.OrderBy(c => c.TEXT_ADDR);
 
             //Поиск v1
 
@@ -36,7 +38,7 @@ namespace TestApp.Web.Controllers
                 foreach (string searchElement in searchElements)
                 {
                     string element = searchElement;
-                    query = query.Where(c => c.NAME.Contains(element) || c.LOGIN.Contains(element) || c.EMAIL.Contains(element));
+                    query = query.Where(c => c.TEXT_ADDR.Contains(element) || c.TEXT_ADDR_NRM.Contains(element));
                 }
             }
 
@@ -47,51 +49,48 @@ namespace TestApp.Web.Controllers
             var urlHelper = new UrlHelper(Request);
             //var prevLink = page > 0 ? urlHelper.Link("Students", new { page = page - 1, pageSize = pageSize }) : "";
             //var nextLink = page < totalPages - 1 ? urlHelper.Link("Students", new { page = page + 1, pageSize = pageSize }) : "";            
-           
 
-            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Current-Page", Newtonsoft.Json.JsonConvert.SerializeObject(currentPage-1));
+
+            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Current-Page", Newtonsoft.Json.JsonConvert.SerializeObject(currentPage - 1));
             System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Page-Count", Newtonsoft.Json.JsonConvert.SerializeObject(totalPages));
             System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Per-Page", Newtonsoft.Json.JsonConvert.SerializeObject(itemsPerPage));
             System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Total-Count", Newtonsoft.Json.JsonConvert.SerializeObject(totalCount));
 
-            IQueryable<TEST_USERS> results = query
+            IQueryable<TEST_SA_TT> results = query
                 .Skip(itemsPerPage * (currentPage - 1))
-                .Take(itemsPerPage);
-            foreach (var user in query)
-            {
-                user.PASSWORD = null;
-            }
+                .Take(itemsPerPage);            
             return results;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(TEST_USERS))]
-        public IHttpActionResult GetUser(decimal id)
+
+        // GET: api/Address/5
+        [ResponseType(typeof(TEST_SA_TT))]
+        public IHttpActionResult GetTEST_SA_TT(decimal id)
         {
-            TEST_USERS tEST_USERS = db.TEST_USERS.Find(id);
-            if (tEST_USERS == null)
+            TEST_SA_TT tEST_SA_TT = db.TEST_SA_TT.Find(id);
+            if (tEST_SA_TT == null)
             {
                 return NotFound();
             }
 
-            return Ok(tEST_USERS);
+            return Ok(tEST_SA_TT);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Address/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(decimal id, TEST_USERS test_users)
+        public IHttpActionResult PutTEST_SA_TT(decimal id, TEST_SA_TT tEST_SA_TT)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != test_users.ID)
+            if (id != tEST_SA_TT.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(test_users).State = EntityState.Modified;
+            db.Entry(tEST_SA_TT).State = EntityState.Modified;
 
             try
             {
@@ -99,7 +98,7 @@ namespace TestApp.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!TEST_SA_TTExists(id))
                 {
                     return NotFound();
                 }
@@ -112,16 +111,16 @@ namespace TestApp.Web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(TEST_USERS))]
-        public IHttpActionResult PostUser(TEST_USERS tEST_USERS)
+        // POST: api/Address
+        [ResponseType(typeof(TEST_SA_TT))]
+        public IHttpActionResult PostTEST_SA_TT(TEST_SA_TT tEST_SA_TT)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.TEST_USERS.Add(tEST_USERS);
+            db.TEST_SA_TT.Add(tEST_SA_TT);
 
             try
             {
@@ -129,7 +128,7 @@ namespace TestApp.Web.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserExists(tEST_USERS.ID))
+                if (TEST_SA_TTExists(tEST_SA_TT.ID))
                 {
                     return Conflict();
                 }
@@ -139,23 +138,23 @@ namespace TestApp.Web.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tEST_USERS.ID }, tEST_USERS);
+            return CreatedAtRoute("DefaultApi", new { id = tEST_SA_TT.ID }, tEST_SA_TT);
         }
 
-        // DELETE: api/Users/5
-        [ResponseType(typeof(TEST_USERS))]
-        public IHttpActionResult DeleteUser(decimal id)
+        // DELETE: api/Address/5
+        [ResponseType(typeof(TEST_SA_TT))]
+        public IHttpActionResult DeleteTEST_SA_TT(decimal id)
         {
-            TEST_USERS tEST_USERS = db.TEST_USERS.Find(id);
-            if (tEST_USERS == null)
+            TEST_SA_TT tEST_SA_TT = db.TEST_SA_TT.Find(id);
+            if (tEST_SA_TT == null)
             {
                 return NotFound();
             }
 
-            db.TEST_USERS.Remove(tEST_USERS);
+            db.TEST_SA_TT.Remove(tEST_SA_TT);
             db.SaveChanges();
 
-            return Ok(tEST_USERS);
+            return Ok(tEST_SA_TT);
         }
 
         protected override void Dispose(bool disposing)
@@ -167,9 +166,9 @@ namespace TestApp.Web.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UserExists(decimal id)
+        private bool TEST_SA_TTExists(decimal id)
         {
-            return db.TEST_USERS.Count(e => e.ID == id) > 0;
+            return db.TEST_SA_TT.Count(e => e.ID == id) > 0;
         }
     }
 }

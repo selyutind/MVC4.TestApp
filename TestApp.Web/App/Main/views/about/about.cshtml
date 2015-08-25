@@ -3,4 +3,20 @@
     <p>@Html.Raw(L("About_AspNetBoilerplateDescription"))</p>
     <p>@L("ForMoreInformation"): <a href="http://www.aspnetboilerplate.com"><strong>aspnetboilerplate.com</strong></a>.</p>
 
+    <div id="grid1" ui-grid="{ data: vm.myData }" class="grid"></div>
+    <pagination page="vm.currentPage" ng-change="vm.pageChanged()" total-items="vm.totalItems" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" items-per-page="vm.itemsPerPage" boundary-links="true"></pagination>
+    <div>
+        Строк на странице
+        <select aria-label="itemsPerPage" ng-model="vm.itemsPerPage" ng-change="vm.pageChanged()">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+    <div>currentPage {{vm.currentPage}}</div>
+    <div>itemsPerPage {{vm.itemsPerPage}}</div>
+
 </div>

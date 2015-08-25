@@ -5,8 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="800206b89dd94d6f834306f60c0a3a5c" Name="Diagram1">
+<<<<<<< HEAD
         <EntityTypeShape EntityType="Model.TEST_USERS" Width="1.5" PointX="1.5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TEST_CALENDAR_DM" Width="1.5" PointX="4.375" PointY="0.75" />
+=======
+        <EntityTypeShape EntityType="Model.TEST_USERS" PointX="0.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TEST_SA_TT" Width="1.5" PointX="3.875" PointY="0.875" />
+>>>>>>> Immortall08/master
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

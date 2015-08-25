@@ -13,12 +13,13 @@
             //return $http.get('/home/users');
             return $http.get('api/users/GetUsers');
         };
-        userService.getPaginationAllUsers = function (page, perPage) {
+        userService.getPaginationAllUsers = function (page, perPage, text) {
             //return $http.get('/home/users');
             return $http.get('api/users/GetPaginationUsers', {
                 params: {
                     currentPage: page,
-                    itemsPerPage: perPage
+                    itemsPerPage: perPage,
+                    search: text
                 }
             });
         };
@@ -43,6 +44,7 @@
             //return $http.post('/home/deleteUser/' + id);
             return $http.delete('api/users/deleteUser/' + id);
         };
+
         return userService;
     };
 

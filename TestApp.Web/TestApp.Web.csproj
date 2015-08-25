@@ -1164,6 +1164,7 @@
     <Compile Include="App_Start\TestAppNavigationProvider.cs" />
     <Compile Include="App_Start\TestAppWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestAppControllerBase.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
@@ -1187,7 +1188,11 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="TEST_CALENDAR_DM.cs">
+=======
+    <Compile Include="TEST_SA_TT.cs">
+>>>>>>> Immortall08/master
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TEST_USERS.cs">
