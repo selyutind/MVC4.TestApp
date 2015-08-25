@@ -26,5 +26,12 @@
     <text name="UserEdit" value="Редактирование пользователя" />
     <text name="UserPassword" value="Пароль" />
     <text name="Save" value="Сохранить" />
+    <text name="NewEventCreation" value="Создание нового события" />
+    <text name="Title" value="Название" />
+    <text name="StartDate" value="Дата начала" />
+    <text name="EndDate" value="Дата окончания" />
+    <text name="AllDay" value="Весь день" />
+    <text name="Url" value="Ссылка" />
+    <text name="Add" value="Добавить" />
   </texts>
 </localizationDictionary>

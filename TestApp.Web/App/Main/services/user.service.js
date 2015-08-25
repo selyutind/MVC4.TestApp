@@ -28,7 +28,7 @@
         };
         userService.createUser = function (user) {
             //return $http.post('/home/createUser', user);
-            return $http.post('api/users/PostUser/' + user);
+            return $http.post('api/users/PostUser', user);
         };
         userService.updateUser = function (userId, modelUser) {
             //return $http.post('/home/updateUser', user);

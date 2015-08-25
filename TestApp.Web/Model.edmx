@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TEST_CALENDAR_DM">
+          <Key>
+            <PropertyRef Name="OBJECT_ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="OBJECT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TITLE" Type="varchar2" MaxLength="2000" />
+          <Property Name="START_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+          <Property Name="ALL_DAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="URL" Type="varchar2" MaxLength="4000" />
+        </EntityType>
         <EntityType Name="TEST_USERS">
           <Key>
             <PropertyRef Name="ID" />
@@ -15,12 +27,13 @@
           <Property Name="PASSWORD" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="EMAIL" Type="varchar2" MaxLength="20" />
           <Property Name="date" Type="date" />
+          <Property Name="USER_ID" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="TEST_CALENDAR_DM" EntityType="Self.TEST_CALENDAR_DM" Schema="MDM" store:Type="Tables" />
           <EntitySet Name="TEST_USERS" EntityType="Self.TEST_USERS" Schema="MDM" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -34,10 +47,24 @@
           <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="date" Type="DateTime" />
+          <Property Name="USER_ID" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TEST_USERS" EntityType="Self.TEST_USERS" />
+          <EntitySet Name="TEST_CALENDAR_DM" EntityType="Model.TEST_CALENDAR_DM" />
         </EntityContainer>
+        <EntityType Name="TEST_CALENDAR_DM">
+          <Key>
+            <PropertyRef Name="OBJECT_ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="OBJECT_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TITLE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="START_DATE" Type="DateTime" />
+          <Property Name="END_DATE" Type="DateTime" />
+          <Property Name="ALLDAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,12 +74,26 @@
           <EntitySetMapping Name="TEST_USERS">
             <EntityTypeMapping TypeName="Model.TEST_USERS">
               <MappingFragment StoreEntitySet="TEST_USERS">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEST_CALENDAR_DM">
+            <EntityTypeMapping TypeName="Model.TEST_CALENDAR_DM">
+              <MappingFragment StoreEntitySet="TEST_CALENDAR_DM">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="ALLDAY" ColumnName="ALL_DAY" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

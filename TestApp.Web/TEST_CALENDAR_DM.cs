@@ -12,14 +12,14 @@ namespace TestApp.Web
     using System;
     using System.Collections.Generic;
     
-    public partial class TEST_USERS
+    public partial class TEST_CALENDAR_DM
     {
-        public decimal ID { get; set; }
-        public string NAME { get; set; }
-        public string LOGIN { get; set; }
-        public string PASSWORD { get; set; }
-        public string EMAIL { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
-        public Nullable<decimal> USER_ID { get; set; }
+        public Nullable<decimal> ID { get; set; }
+        public decimal OBJECT_ID { get; set; }
+        public string TITLE { get; set; }
+        public Nullable<System.DateTime> START_DATE { get; set; }
+        public Nullable<System.DateTime> END_DATE { get; set; }
+        public Nullable<decimal> ALLDAY { get; set; }
+        public string URL { get; set; }
     }
 }
